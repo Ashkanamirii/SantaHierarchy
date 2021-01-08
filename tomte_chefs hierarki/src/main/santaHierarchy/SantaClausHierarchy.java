@@ -26,7 +26,7 @@ public class SantaClausHierarchy {
 
     // recursive methode
     public List<String> upRoot(String name) {
-        String s = "select bosses from tomte t where t.sub_busses ='" + name + "'";
+        String s = "select bosses from tomte t where t.sub_bosses ='" + name + "'";
         try {
             Statement statement = connectionDB.createStatement();
             ResultSet queryResult = statement.executeQuery(s);
@@ -42,12 +42,12 @@ public class SantaClausHierarchy {
     }
 
     public List<String> subRoot(String name) {
-        String s = "select sub_busses from tomte t where t.bosses ='" + name + "'";
+        String s = "select sub_bosses from tomte t where t.bosses ='" + name + "'";
         try {
             Statement statement = connectionDB.createStatement();
             ResultSet queryResult = statement.executeQuery(s);
             while (queryResult.next()) {
-                children.add(queryResult.getString("sub_busses"));
+                children.add(queryResult.getString("sub_bosses"));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -106,7 +106,7 @@ public class SantaClausHierarchy {
                             or it has no information at our place,\s
                             try again"""), "ERROR");
                 else {
-                    showMessageDialog(result, "SUB BUSSES");
+                    showMessageDialog(result, "SUB BOSSES");
                     run = false;
                 }
             } else {

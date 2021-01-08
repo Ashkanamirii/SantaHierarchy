@@ -1,8 +1,6 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Ashkan Amiri
@@ -33,11 +31,9 @@ public class DataBaseConfig {
     }
 
     public void insertToDb() {
-
         DataBaseConfig connection = new DataBaseConfig();
         Connection connectionDB = connection.getConnection();
-
-        String customerInsert = "INSERT INTO tomte(bosses, sub_busses) VALUES('Myran','Bladlusen' )";
+        String customerInsert = "INSERT INTO tomte(bosses, sub_bosses) VALUES('Myran','Bladlusen' )";
         try {
             Statement statement = connectionDB.createStatement();
             statement.executeUpdate(customerInsert);
@@ -46,16 +42,8 @@ public class DataBaseConfig {
             e.printStackTrace();
             e.getCause();
         }
-
-
     }
-
-
-    public List<String> subSelect(String name) {
-        List<String> subBosses = new ArrayList<>();
-        return subBosses;
-    }
-
+// Just for test the insert to data base
 //    public static void main(String[] args) {
 //        DataBaseConfig dataBaseConfig = new DataBaseConfig();
 //        dataBaseConfig.insertToDb();
