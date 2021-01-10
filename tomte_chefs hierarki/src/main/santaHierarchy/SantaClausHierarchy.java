@@ -93,7 +93,7 @@ public class SantaClausHierarchy {
                     showMessageDialog(Collections.singletonList("""
                             Either you have entered incorrectly
                             or it has no information at our place,\s
-                            try again"""), "ERROR");
+                            Please try again"""), "ERROR");
                 else {
                     showMessageDialog(result, "BOSSES");
                     run = false;
@@ -104,7 +104,7 @@ public class SantaClausHierarchy {
                     showMessageDialog(Collections.singletonList("""
                             Either you have entered incorrectly
                             or it has no information at our place,\s
-                            try again"""), "ERROR");
+                            Please try again"""), "ERROR");
                 else {
                     showMessageDialog(result, "SUB BOSSES");
                     run = false;
